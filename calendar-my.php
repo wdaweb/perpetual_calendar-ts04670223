@@ -13,11 +13,11 @@
 
 </head>
 <style>
+
   body {
     margin: auto;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
     background: linear-gradient(45deg, #4b8baf, #433d99);
     font-family: 'Secular One', sans-serif;
   }
@@ -29,25 +29,24 @@
   }
 
   thead {
-    background: linear-gradient(45deg, rgb(46 64 162), #4f6caa);
+    background: linear-gradient(45deg, rgb(63 102 191), #5977b5);
   }
 
-  th,
-  td {
-    font-size: 1.2rem;
-    padding: 25px;
+  th
+  {
+    font-size: 1.5rem;
     color: #ffffff;
-    border: 0;
+  }
+  td {
+    font-size:1.2rem;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
   }
 
   tr:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.1);
   }
-
-  td {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
-
+  
   tbody tr td:hover {
     background-color: rgba(120, 172, 240);
     transform: translate3d(8px, -8px, 0);
@@ -68,9 +67,33 @@
     margin: auto;
     align-items: center;
   }
-  .table td{
-    border: none;
+  .c{
+    color: #214a7f;
   }
+
+  @media screen and (min-width: 310px)and (max-width: 400px){
+    td {
+      font-size: .4rem;
+      /* position: relative; */
+    }
+    h1{
+      font-size: 2rem;
+    }
+    th{
+      font-size: .6rem;
+    }
+    .hol{
+      /* position: absolute; */
+      font-size: 1px;
+    }
+  }
+  /* .holM{
+    position: relative;
+  } */
+  /* .hol{
+    position: absolute;
+    left: 42.5%;
+  } */
 </style>
 
 <body>
@@ -121,11 +144,16 @@
     '11' => 'November',
     '12' => 'December'
   ];
+  $holiday=[
+    '12-25'=>'聖誕節',
+    '10-10'=>'國慶日',
+    '10-31'=>'萬聖節',
+];
 
   ?>
   <div class="container" >
     <div class="row flex-column align-items-center ">
-    <h1 class="text-light"><?= $year ?>/<?= $MonthChange[$thiM]?></h1>
+    <h1 class="text-light text-center sticky-top rounded"><?= $year ?>/<?= $MonthChange[$thiM]?></h1>
     <form class="m-1 text-center" action="calendar-my.php" method="get" >
       <input type="text" name="year" placeholder='Year' required >
       <select  name="month" class="btn btn-light">
@@ -146,15 +174,15 @@
       </select>
       <button type="submit" class="btn btn-light " value="查詢" >Serch</button>
     </form>
-      <table class="table">
+      <table class="table table-borderless">
         <thead>
-          <td>日</td>
-          <td>一</td>
-          <td>二</td>
-          <td>三</td>
-          <td>四</td>
-          <td>五</td>
-          <td>六</td>
+          <th>日</th>
+          <th>一</th>
+          <th>二</th>
+          <th>三</th>
+          <th>四</th>
+          <th>五</th>
+          <th>六</th>
         </thead>
         <?php
 
@@ -169,14 +197,21 @@
         for ($i = 0; $i < $week; $i++) {
           echo "<tr>";
           for ($j = 0; $j < 7; $j++) {
-            echo "<td>";
+            echo "<td class='holM'>";
+            $date='';
             if ($i == 0 && $j < $starDayweek) {
-              echo ($j+1+$onMoth-$starDayweek);
+              $lM='';
+              $lM=($j+1+$onMoth-$starDayweek);
+              echo "<div class='c'>{$lM}</div>";
             } elseif ((($i * 7) + ($j + 1) - $starDayweek) > $monthDays) {
-              echo $j-$monthLastDay;
+              $NM=$j-$monthLastDay;
+              echo "<div class='c'>$NM</div>";
             } else {
               echo ($i * 7) + ($j + 1) - $starDayweek;
-
+              $date=(($i * 7) + ($j + 1) - $starDayweek);
+            }
+            if (!empty($holiday[$thiM.'-'.$date])) {
+              echo "<div class='hol'>{$holiday[$thiM.'-'.$date]}</div>";
             }
             echo "</td>";
           }
