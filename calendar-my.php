@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lobster&family=Secular+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
 </head>
 <style>
 
@@ -20,6 +19,9 @@
     width: 100vw;
     background: linear-gradient(45deg, #4b8baf, #433d99);
     font-family: 'Secular One', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   table {
     margin: auto;
@@ -38,9 +40,13 @@
     color: #ffffff;
   }
   td {
+    position: relative;
     font-size:1.2rem;
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.15);
+    height: 70px;
+    width: 14%;
+    line-height: 70px;
   }
 
   tr:nth-child(odd) {
@@ -54,6 +60,7 @@
     transition-duration: 0.4s;
     color: #464A52;
     font-weight: bold;
+    z-index: 10;
   }
 
   tbody tr:hover {
@@ -70,11 +77,20 @@
   .c{
     color: #214a7f;
   }
-
-  @media screen and (min-width: 310px)and (max-width: 400px){
+  .hol{
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10%;
+      /* font-size: 0.5rem; */
+      
+    }
+  @media screen and (min-width: 310px)and (max-width: 320px){
     td {
-      font-size: .4rem;
-      /* position: relative; */
+      width: 14%;
+      font-size: 0.5rem;
+      height: 30px;
+      line-height: 30px;
     }
     h1{
       font-size: 2rem;
@@ -82,9 +98,46 @@
     th{
       font-size: .6rem;
     }
-    .hol{
-      /* position: absolute; */
-      font-size: 1px;
+  }
+  /* .holM{
+    position: relative;
+  } */
+  /* .hol{
+    position: absolute;
+    left: 42.5%;
+  } */
+  @media screen and (min-width: 320px)and (max-width: 376px){
+    body{
+      display: block;
+    }
+    td {
+      width: 14%;
+      font-size: 0.5rem;
+      height: 30px;
+      line-height: 30px;
+    }
+    h1{
+      font-size: 2rem;
+    }
+    th{
+      font-size: .6rem;
+    }
+  }
+  @media screen and (min-width: 400px)and (max-width: 414px){
+    body{
+      display: block;
+    }
+    td {
+      width: 14%;
+      font-size: 0.5rem;
+      height: 40px;
+      line-height: 40px;
+    }
+    h1{
+      font-size: 2rem;
+    }
+    th{
+      font-size: .6rem;
     }
   }
   /* .holM{
@@ -111,6 +164,7 @@
   $monthDays = date('t', $firstDate);// "這個月天數=>"
   $onMoth = date('t',strtotime("{$year}-{$thiM}-1-1month"));
   $monthLastDay =date('w',strtotime("{$year}-{$thiM}-{$monthDays}"));
+
   if (!empty($_REQUEST['year'])) {
     $year=$_REQUEST['year'];
     $month=$_REQUEST['month'];
@@ -210,6 +264,11 @@
               echo ($i * 7) + ($j + 1) - $starDayweek;
               $date=(($i * 7) + ($j + 1) - $starDayweek);
             }
+            if($thiM==5 && $starDayweek==0 && $j==0 && $i>0 && $i<2 ){
+              echo "<div class='hol'>母親節</div>";
+            }elseif($thiM==5 && $starDayweek>0 && $j==0 && $i>1 && $i<3 ){
+              echo "<div class='hol'>母親節</div>";
+            }
             if (!empty($holiday[$thiM.'-'.$date])) {
               echo "<div class='hol'>{$holiday[$thiM.'-'.$date]}</div>";
             }
@@ -232,6 +291,11 @@
       </div>
     </div>
   </div>
+<?php
+if ($thiM==12) {
+  echo "<script type='text/javascript' src='http://www.schillmania.com/projects/snowstorm/snowstorm.js'></script>";
+}
+?>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
