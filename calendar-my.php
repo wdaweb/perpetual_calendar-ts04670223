@@ -48,7 +48,14 @@
     width: 14%;
     line-height: 70px;
   }
-
+  td .T{
+    /* position: absolute;
+    left: 0; 
+    top: 0;
+    right: 0;
+    bottom: 0;  */
+    background-color: #2463a7;
+  }
   tr:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.1);
   }
@@ -253,14 +260,18 @@
           for ($j = 0; $j < 7; $j++) {
             echo "<td class='holM'>";
             $date='';
-            if ($i == 0 && $j < $starDayweek) {
+            if ($year == date('Y') && $thiM == date('m') && (($i * 7) + ($j + 1)) == date('j')) { //標註今日
+              echo "<div class='T'>" . date('j') . "</div>";
+            }
+            elseif($i == 0 && $j < $starDayweek) {
               $lM='';
               $lM=($j+1+$onMoth-$starDayweek);
               echo "<div class='c'>{$lM}</div>";
             } elseif ((($i * 7) + ($j + 1) - $starDayweek) > $monthDays) {
               $NM=$j-$monthLastDay;
               echo "<div class='c'>$NM</div>";
-            } else {
+            }
+            else {
               echo ($i * 7) + ($j + 1) - $starDayweek;
               $date=(($i * 7) + ($j + 1) - $starDayweek);
             }
