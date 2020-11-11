@@ -39,6 +39,9 @@
     font-size: 1.5rem;
     color: #ffffff;
   }
+  td:nth-child(6n+1){
+    color:#e8b84a;
+  }
   td {
     position: relative;
     font-size:1.2rem;
