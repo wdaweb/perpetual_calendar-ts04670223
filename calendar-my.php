@@ -12,12 +12,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <style>
-
   body {
     margin: auto;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(45deg, #4b8baf, #433d99);
+    /* background: linear-gradient(45deg, #4b8baf, #433d99); */
+    background-image: url(https://picsum.photos/1920/768/?random=1);
+    background-size: cover;
     font-family: 'Secular One', sans-serif;
     display: flex;
     align-items: center;
@@ -28,19 +29,19 @@
     text-align: center;
     box-shadow: 0 0 10PX rgba(0, 0, 0, 0.3);
     border-spacing: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
   }
 
   thead {
-    background: linear-gradient(45deg, rgb(63 102 191), #5977b5);
+    background: linear-gradient(45deg, rgba(63 102 191/.3), rgba(89 119 181/ .7));
   }
 
   th
   {
     font-size: 1.5rem;
     color: #ffffff;
-  }
-  td:nth-child(6n+1){
-    color:#e8b84a;
+    text-shadow: 1px 1px #4d5981,2px 2px #4d5981,3px 3px #4d5981,4px 4px #4d5981;
   }
   td {
     position: relative;
@@ -61,7 +62,7 @@
     right: 0;
     bottom: 0; 
     background-color: #2463a7;
-    background-color: rgba(120, 172, 240);
+    background-color: rgba(120, 172, 240,0.3);
     transform: translate3d(8px, -8px, 0);
     box-shadow: #214a7f -1px 1px, #214a7f -2px 2px, #214a7f -3px 3px, #214a7f -4px 4px, #214a7f -5px 5px, #214a7f -6px 6px, #214a7f -7px 7px, #214a7f -8px 8px;
     transition-duration: 0.4s;
@@ -71,19 +72,23 @@
   tr:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.1);
   }
-  
+  td:nth-child(6n+1){
+    color:#ffd900;
+  }
   tbody tr td:hover {
-    background-color: rgba(120, 172, 240);
+    background-color: rgba(120, 172, 240,.4);
     transform: translate3d(8px, -8px, 0);
     box-shadow: #214a7f -1px 1px, #214a7f -2px 2px, #214a7f -3px 3px, #214a7f -4px 4px, #214a7f -5px 5px, #214a7f -6px 6px, #214a7f -7px 7px, #214a7f -8px 8px;
     transition-duration: 0.4s;
     color: #464A52;
     font-weight: bold;
-    z-index: 10;
+    z-index: 12;
   }
-
+  h1{
+    text-shadow: 1px 1px #4d5981,2px 2px #4d5981,3px 3px #4d5981,4px 4px #4d5981;
+  }
   tbody tr:hover {
-    background-color: rgba(120, 172, 240);
+    background-color: rgba(120, 172, 240,.4);
     transform: translate3d(8px, -8px, 0);
     box-shadow: #214a7f -1px 1px, #214a7f -2px 2px, #214a7f -3px 3px, #214a7f -4px 4px, #214a7f -5px 5px, #214a7f -6px 6px, #214a7f -7px 7px, #214a7f -8px 8px;
     transition-duration: 0.4s;
@@ -101,31 +106,23 @@
       left: 0;
       right: 0;
       bottom: -10%;
-      /* font-size: 0.5rem; */
-      
     }
-  @media screen and (min-width: 310px)and (max-width: 320px){
-    td {
-      width: 14%;
-      font-size: 0.5rem;
-      height: 30px;
-      line-height: 30px;
+    .navbar-toggler {
+      font-size: 1rem;
     }
-    h1{
-      font-size: 2rem;
+    .bgV{
+      background-color: rgba(137, 166,194, 0.4);
+      backdrop-filter: blur(10px);
     }
-    th{
-      font-size: .6rem;
+    .maL{
+      margin-left: .2rem;
+      margin-top: .2rem;
     }
-  }
-  /* .holM{
-    position: relative;
-  } */
-  /* .hol{
-    position: absolute;
-    left: 42.5%;
-  } */
-  @media screen and (min-width: 320px)and (max-width: 376px){
+    .maLS{
+      margin-left: .2rem;
+      margin-top: .2rem;
+    }
+  @media screen and (min-width: 0px)and (max-width: 576px){
     body{
       display: block;
     }
@@ -136,36 +133,55 @@
       line-height: 30px;
     }
     h1{
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
     th{
       font-size: .6rem;
     }
+    .none{
+      display: none!important;
+    }
+    .none2{
+      display: block!important;
+    }
+    .maL{
+      margin-left: .2rem;
+    }
+    .maLS{
+    margin-left: .2rem;
   }
-  @media screen and (min-width: 400px)and (max-width: 414px){
+  }
+  @media screen and (min-width: 576px)and (max-width: 987px){
     body{
       display: block;
     }
     td {
       width: 14%;
-      font-size: 0.5rem;
+      font-size: 1.2rem;
       height: 40px;
       line-height: 40px;
     }
     h1{
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
     th{
-      font-size: .6rem;
+      font-size: 1.5rem;
     }
+    .none{
+      display: none!important;
+    }
+    .none2{
+    display: block!important;
   }
-  /* .holM{
-    position: relative;
-  } */
-  /* .hol{
-    position: absolute;
-    left: 42.5%;
-  } */
+  .maL{
+      margin-left:.2rem;
+      margin-top: .2rem;
+    }
+  .maLS{
+    margin-left:.2rem;
+    margin-top: .2rem;
+  }
+  }
 </style>
 
 <body>
@@ -224,12 +240,23 @@
 ];
 
   ?>
-  <div class="container" >
+  
+  <div class="container text-center" >
     <div class="row flex-column align-items-center ">
-    <h1 class="text-light text-center sticky-top rounded"><?= $year ?>/<?= $MonthChange[$thiM]?></h1>
-    <form class="m-1 text-center" action="calendar-my.php" method="get" >
-      <input type="text" name="year" placeholder='Year' required >
-      <select  name="month" class="btn btn-light">
+    <h1 class="none text-light text-center sticky-top rounded "><?= $year ?>/<?= $MonthChange[$thiM]?></h1>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bgV">
+    <h1 class="none2 d-none text-light text-center sticky-top rounded "><?= $year ?>/<?= $MonthChange[$thiM]?></h1>
+  <button class="navbar-toggler h6" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse"id="navbarNavDropdown" >
+  <ul class="navbar-nav">
+  <li class="nav-item active">
+    <form class="m-1 text-center form-inline " action="calendar-my.php" method="get" >
+      <input class=" form-control " type="text" name="year" placeholder='Year' required > 
+      <select  name="month" class="btn btn-light maL ">
         <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
           <option value="1">January</option>
           <option value="2">February</option>
@@ -245,8 +272,12 @@
           <option value="12">December</option>
         </div>
       </select>
-      <button type="submit" class="btn btn-light " value="查詢" >Serch</button>
+      <button type="submit" class="btn btn-light  maLS" value="查詢" >Serch</button>
     </form>
+    </li>
+    </ul>
+    </div>
+    </nav>
       <table class="table table-borderless">
         <thead>
           <th>日</th>
@@ -301,7 +332,7 @@
         }
         ?>
       </table>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <div class="btn-group btn-group-toggle  mx-auto" data-toggle="buttons">
         <a class="btn btn-light material-icons" href="?year=<?php echo $year - 1 ?>&month=<?php echo $thiM ?>">fast_rewind</a>
         <a class="btn btn-light material-icons" href="?year=<?php echo $lastyear ?>&month=<?php echo $lastmonth ?>">keyboard_arrow_left</a>
         <a class="btn btn-light material-icons" href="?year=<?php echo $todayYear ?>&month=<?php echo $todayMonth ?>">date_range</a>
