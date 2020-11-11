@@ -49,12 +49,21 @@
     line-height: 70px;
   }
   td .T{
-    /* position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
     left: 0; 
     top: 0;
     right: 0;
-    bottom: 0;  */
+    bottom: 0; 
     background-color: #2463a7;
+    background-color: rgba(120, 172, 240);
+    transform: translate3d(8px, -8px, 0);
+    box-shadow: #214a7f -1px 1px, #214a7f -2px 2px, #214a7f -3px 3px, #214a7f -4px 4px, #214a7f -5px 5px, #214a7f -6px 6px, #214a7f -7px 7px, #214a7f -8px 8px;
+    transition-duration: 0.4s;
+    color: #464A52;
+    z-index: 11;
   }
   tr:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.1);
