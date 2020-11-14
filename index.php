@@ -227,8 +227,8 @@
   <div class="container" >
     <div class="row flex-column align-items-center ">
     <h1 class="text-light text-center sticky-top rounded"><?= $year ?>/<?= $MonthChange[$thiM]?></h1>
-    <form class="m-1 text-center" action="calendar-my.php" method="get" >
-      <input type="text" name="year" placeholder='Year' required >
+    <form class="m-1 text-center" action="index.php" method="get" >
+      <input type="text" name="year" placeholder='<?=date("Y");?>' required value="<?=date("Y");?>">
       <select  name="month" class="btn btn-light">
         <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
           <option value="1">January</option>
